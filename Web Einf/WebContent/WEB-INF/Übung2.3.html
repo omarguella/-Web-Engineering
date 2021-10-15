@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<style>
+.grandpa {
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	position: fixed;
+	background-color: #b2d6d1;
+} 
+
+.papa {
+	left: 5%;
+	top: 11%;
+	width: 90%;
+	height: 100%;
+	position: fixed;
+	background-color: #F0FFFF;
+}
+
+.p0 {
+	margin-top: 10px;
+	margin-left: 45%;
+	font-family: "Brush Script MT";
+	font-size: 40px;
+}
+
+.p1 {
+	display : flex;
+	margin-top: 30px;
+	margin-left: 35%;
+	font-family: "Lucida Handwriting";
+	
+}
+
+td {
+	height: 50px;
+}
+
+.left {
+	text-align: right;
+	font-family: "Papyrus";
+	
+}
+
+.right {
+	text-align: left;
+}
+
+table {
+	display : flex;
+
+	width: 80%;
+	margin-left: 10%;
+}
+</style>
+<div class="grandpa">
+	<p class="p0">Survey Form</p>
+	<div class="papa">
+
+		<p class="p1">let us know how we can improve freeCodeCamp</p>
+		<table>
+
+			<tr>
+				<td class="left">*NAME</td>
+				<td class="right"><input type="name" id="w3review"  placeholder="Enter your name"></input></td>
+			</tr>
+			<tr>
+				<td class="left">*Email</td>
+				<td class="right"><input type="name" id="w3review" placeholder="Enter your Email"></input></td>
+
+			</tr>
+			<tr>
+				<td class="left">*AGE </td>
+				<td class="right"><input type="number" id="quantity"
+					name="quantity" min="12" max="100"  placeholder="AGE"></td>
+			</tr>
+			<tr>
+				<td class="left">Wich options best descripes your current role</td>
+				<td class="right"><select id="cars" name="cars">
+						<option value="volvo">Student</option>
+						<option value="saab">Mitarbeiter</option></td>
+			</tr>
+			<tr>
+				<td class="left">How likely is that you would recommend
+					freeCodeCamp to a Friend</td>
+				<td class="right"><input type="radio" id="html"
+					name="fav_language" value="HTML"> <label for="html">Defintely</label><br>
+					<input type="radio" id="css" name="fav_language" value="CSS">
+					<label for="css">Mabye</label><br> <input type="radio"
+					id="javascript" name="fav_language" value="JavaScript"> <label
+					for="javascript">Not Sure</label><br> <br></td>
+			</tr>
+			<tr>
+				<td class="left">What do you like moste in FCC</td>
+				<td class="right"><select id="cars" name="cars">
+						<option value="volvo">Select an Option</option></td>
+			</tr>
+			<tr>
+				<td class="left">Things that Should be improved in the future
+					(check all that apply)</td>
+				<td class="right"><input type="radio" id="html"
+					name="fav_language" value="HTML"> <label for="html">Front-end
+						Projects</label><br> <input type="radio" id="css" name="fav_language"
+					value="CSS"> <label for="css">Back-end Projects</label><br>
+					<input type="radio" id="javascript" name="fav_language"
+					value="JavaScript"> <label for="javascript">Data
+						Visualization </label><br> <br></td>
+			</tr>
+		</table>
+	</div>
+</div>
