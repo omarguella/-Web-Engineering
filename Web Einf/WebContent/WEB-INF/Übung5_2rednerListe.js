@@ -6,9 +6,8 @@ window.onload = function () {
 		const button = document.getElementById("newButtuon");
 
     if ( input || list  ||button) {
-        button.addEventListener("click", (event) => {
-            const name = input.value;
-				if (name != "") {
+        button.addEventListener("click", (event) => {const name = input.value;
+			if (name != "") {
 					const table = document.createElement("table");
 					const redner = document.createElement("li");
 					const tr = document.createElement("tr");
@@ -66,7 +65,7 @@ function Timer(time) {
 function stopTime(intervl, button, timer) {
     return function () {
         clearInterval(intervl);
-        button.innerText = "Start!";
+        button.innerText = "Start";
         button.onclick = restartTimer(intervl, button, timer);};
 
 }
@@ -75,7 +74,7 @@ function restartTimer(intervl, button, timer) {
     return function () {
         intervl = setInterval(timer, 900);
         stopAll( timer, button,intervl);
-        button.innerText = "Stopp!";
+        button.innerText = "Stopp";
         button.onclick = stopTime(intervl, button, timer);};
 }
 
