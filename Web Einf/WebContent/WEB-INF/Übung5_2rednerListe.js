@@ -83,7 +83,5 @@ function stopAll( timer, button,intervl) {
     if ( aktuTime != null && aktuButton != null && aktuIntervl != null ) {
         stopTime(aktuIntervl, aktuButton, aktuTime)();
     } 
-    aktuButton = button;
-    aktuIntervl = intervl;
-    aktuTime = timer;
+    aktuButton = button; aktuIntervl = intervl; aktuTime = timer;
 }

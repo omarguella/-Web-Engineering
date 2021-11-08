@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+   
+</head>
+      
+
+<body>
+
+    <div  >
+    <h1 id="text">dieser Text wiederholt sich 10000 Mal</h1>
+		</div>
+    <table>
+        <tr>
+            <td>
+                innerHtml
+            </td>
+            <td id="innerHtml">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                innerText
+            </td>
+            <td id="innerText">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                textContent
+            </td>
+            <td id="textContent">
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                outerHtml
+            </td>
+            <td id="outerHtml">
+            </td>
+        </tr>    
+    </table>
+
+</body>
+  <script > var list = document.getElementById('text');
+        let time = performance.now();
+        for (var i = 0; i < 10000; i++) 
+        {list.innerHTML ;}
+        let timeNew = performance.now();
+        document.getElementById("innerHtml").textContent = `${timeNew -time}ms`;
+        
+         time = performance.now();
+        for (var i = 0; i < 10000; i++) 
+        {list.innerText ;}
+        timeNew = performance.now();
+        document.getElementById("innerText").textContent = `${timeNew - time}ms`;
+        
+        time = performance.now();
+        for (var i = 0; i < 10000; i++)
+        {list.textContent ;}
+        timeNew = performance.now();
+        document.getElementById("textContent").textContent = `${timeNew - time}ms`;
+        
+        time = performance.now();
+        for (var i = 0; i < 10000; i++)
+        {  list.outerHtml ; }
+       timeNew = performance.now();    
+        document.getElementById("outerHtml").textContent = `${timeNew - time} ms`;
+        </script>
+</html>
+
