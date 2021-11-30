@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+<h1>Write Your text im Field and see if you have forgot to Close any nested brackets</h1>
+
+<textarea id="textarea" rows="4" cols="50" placeholder="write your Text and please use some nested brackets" >
+</textarea>
+
+  <button class="button" onclick = check() >check Text</button>
+<script>
+  const text= document.getElementById("textarea").value;
+      console.log(text);
+
+const zeichen = {
+    openklamma: 0,
+    openEckigeKlammer: 0,
+    openGeschweifteKlammer: 0,
+
+};
+
+
+function check() {
+
+    for (let i of text) {
+
+        if (i == "(") {
+            zeichen.openklamma++;
+        }
+        if (i == "{") {
+            zeichen.openGeschweifteKlammer++;
+        }
+        if (i == "[") {
+
+            zeichen.openEckigeKlammer++;
+        }
+
+        if (i == ")") {
+            zeichen.openklamma--;
+        }
+        if (i == "}") {
+
+            zeichen.openGeschweifteKlammer--;
+        }
+        if (i == "]") {
+            zeichen.openEckigeKlammer--;
+        }
+
+    }
+
+    var s = (zeichen.openklamma + zeichen.openGeschweifteKlammer + zeichen.openEckigeKlammer) == 0;
+	
+    console.assert(s, 'the Text IS NOT ACCEPTED');
+ 
+ if (s==false){document.getElementById("textarea").style="background-color:red;";}
+ else{document.getElementById("textarea").style="background-color:white;";}
+
+}
+
+</script>
+
+</body>
+</html>

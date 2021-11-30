@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Uebung 5.5. DeepCopy</title>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<script>
+    const deepCopy = (obj) => {
+        let copy;
+
+        if(typeof obj !== "object"  || obj == null){
+            return obj;
+        }
+
+        copy = Array.isArray(obj) ? [] : {};
+
+        for( let key in obj){
+            let value = obj[key];
+
+            copy[key] = deepCopy(value);
+        }
+
+        return copy;
+    }
+
+    const testArray = [[[1,2],[3,4]],[1,2,3,4]];
+    const testObject = { array: [[[1,2],[3,4]],[1,2,3,4]], foo: "bar"};
+
+    const test1 = deepCopy(testArray);
+    console.assert(test1[0][0] !== testArray[0][0] && test1[0][0][0] === testArray[0][0][0]);
+
+    const test2 = deepCopy(testObject);
+    console.assert(test2["array"][0][0] !== testObject["array"][0][0] && test2["array"][0][0][0] === testObject["array"][0][0][0]);
+
+    console.log(deepCopy(testArray));
+    console.log(deepCopy(testObject));
+</script>
