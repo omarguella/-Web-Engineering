@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 2.3. Wireframe with HTML and CSS</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+</style>	
+
+<body> 
+	<div id="aufgabe"><h1>Aufgabe 2.3. Wireframe with HTML and CSS</h1>
+	<p>Gegeben ist folgendes HTML-Wireframe:<p>
+	<img src="https://kaul.inf.h-brs.de/we/assets/img/survey.png" style="max-width:600px;width:100%">
+	<p>Hinweis zu den Farben: Firefox DevTools anthalten eine Pipette namens <a href="https://developer.mozilla.org/de/docs/Tools/Eyedropper" target="_blank" >"Eyedropper"</a>, mit der man die Farben aus einer Webseite auslesen kann. Die grünliche Farbe im Rahmen des Wireframes ist demnach #b2d6d1,
+Hinweis zu den Schriften (Fonts): Die größte Sammlung an "kostenlosen" Web-Schriften stammt von Google und ist unter<a href="https://fonts.google.com/" target="_blank" > Google Fonts<a> zu finden. Wer lieber aus dem Vorrat an<a href="https://www.zeichenschatz.net/typography/websichere-schriften" target="_blank" > vorhanden Schriften<a>  auswählt, wird unter websichere Schriften fündig.
+Frage: Mit welchem HTML- und CSS-Code kann man diesen Wireframe exakt nachbilden?
+Schreiben Sie Ihren CSS-Code direkt in die HTML-Datei. Geben Sie Ihren HTML- und CSS-Quellcode zusammen in dieses Textfeld ein: </p>
+	<p><b>QUELLCODE:</b> </p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;style>
+h1,h2,h3 {
+  background-color: white;
+  opacity: 0.8;
+  font-size: 40px;
+  position: sticky;
+  left: 30px;
+  border: 1px solid ;
+  top : 0;
+  padding: 0.9em;
+  margin: 0.2em
+}
+ div {
+           background-color: lightpink;
+          font-family:   Arial, Helvetica, sans-serif;
+            font-size: 20px;
+          padding: 0.5em;
+           margin: 0.5em;
+       }
+&lt;/style>
+&lt;/head>
+&lt;body>
+
+&lt;h1>Erste Uberschrift&lt;/h1>
+&lt;div> TEXT  &lt;/div>
+
+&lt;div> TEXT &lt;/div>
+&lt;div> TEXT &lt;/div>
+
+&lt;div> TEXT &lt;/div>
+
+&lt;h2>Zweite Uberschrift&lt;/h2>
+&lt;div> TEXT &lt;/div>
+
+&lt;div> TEXT &lt;/div>
+&lt;div> TEXT &lt;/div>
+&lt;div TEXT &lt;/div>
+
+&lt;h3>Dritte Uberschrift&lt;/h3>
+&lt;div> TEXT &lt;/div>
+&lt;div> TEXT &lt;/div>
+&lt;div TEXT &lt;/div>
+
+
+
+&lt;/body>
+&lt;/html>
+
+	</pre>
+	
+</body>
+</html>

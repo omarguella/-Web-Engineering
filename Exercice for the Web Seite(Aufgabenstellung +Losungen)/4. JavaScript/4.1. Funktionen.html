@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 4.1. Funktionen</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 4.1. Funktionen</h1>
+	<p><b>Schreiben Sie eine Funktion<code> identity()</code>, die ein Argument als Parameter entgegen nimmt und dieses als Ergebnis zurück gibt.</b></p>
+
+<p>QUELLCODE:</b></p>
+	<pre> function identity(arg) {
+    return arg;
+}
+	</pre>
+	
+	
+		<p><b>Schreiben Sie eine Funktion<code> identity_function()</code>, die ein Argument als Parameter entgegen nimmt und eine Funktion zurück gibt, die dieses Argument zurück gibt.</b></p>
+
+<p>QUELLCODE:</b></p>
+	<pre> function identity_function(arg) {
+    return (
+        function() {
+            return arg;
+        }
+    )
+
+	</pre>
+	
+		<p><b>Schreiben Sie zwei binäre Funktionen <code> add</code> und  <code> mul</code>, die Summe und Produkt berechnen.</b></p>
+
+<p>QUELLCODE:</b></p>
+	<pre> function add(x,y) {
+    return x+y;
+}
+
+function mul(x,y) {
+    return x*y;
+}
+</pre>
+	
+			<p><b>Schreiben Sie eine Addier-Funktion <code> addf()</code> sodass  <code> addf(x)(y)</code> genau <code> x+y</code> ,zurück gibt. (Es haben also zwei Funktionsaufrufe zu erfolgen. <code>addf(x)</code> liefert eine Funktion, die auf <code>y</code> angewandt wird.)</b></p>
+
+<p>QUELLCODE:</b></p>
+	<pre> function addf(x){
+    return (
+        function(y) {
+            return x+y;
+        }  ) }
+</pre>
+
+
+
+		<p><b>Schreiben Sie eine Funktion<code> applyf(),</code>  die aus einer binären Funktion wie <code>add(x,y)</code>  eine Funktion <code>addf</code>  berechnet, die mit zwei Aufrufen das gleiche Ergebnis liefert, z.B. <code>addf = applyf(add); addf(x)(y) </code> soll <code>add(x,y)</code>  liefern. Entsprechend <code>applyf(mul)(5)(6)</code>  soll <code>30 </code> liefern, wenn <code>mul</code>  die binäre Multiplikation ist.</p>
+
+<p>QUELLCODE:</b></p>
+	<pre> function applyf(binar) {
+    return (
+        function(x) {
+            return (
+                function(y) {
+                    return binar(x,y);
+             }
+          )
+      }
+   )
+}
+console.log(applyf(mul)(5)(3))
+
+</pre>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+
+    
+    <style>
+       header { 
+           grid-area: header;
+           background-color: red;
+        }
+
+       main { 
+           grid-area: main;
+           background-color: blue;
+        }
+
+       aside.left { 
+           grid-area: left;
+           background-color: lightgreen; 
+        }
+
+       aside.right { 
+           grid-area: right; 
+           background-color: pink; 
+        }
+
+        .body {
+                display: grid;
+                min-height: 100vh;
+                height: 100vh;
+                grid-template-areas:
+                              "header"
+                              "left"
+                              "main"
+                              "main"
+                              "right";
+        }
+
+       
+
+        @media screen and (min-width: 500px) {
+        	.body {
+	        display: grid;
+	        grid-template-areas: "header header"
+	                             "left main "
+                                 "right right"
+                                 ;
+	        grid-template-columns: 1fr 2fr;
+	        grid-template-rows: 150px 1fr 100px 30px;
+        }
+        
+    } 
+
+        @media screen and (min-width: 800px) {
+        	.body {
+	        display: grid;
+	        grid-template-areas: "header header header"
+	                             "left main right";
+	        grid-template-columns: 150px 1fr 150px;
+	        grid-template-rows: 100px 1fr 30px;
+        }
+    }
+
+        
+    </style>
+    
+        <body class="body">
+        <header ></header>
+        <main ></main>
+        <aside class="left"></aside>
+        <aside class="right"></aside>
+    </body>
+</html>

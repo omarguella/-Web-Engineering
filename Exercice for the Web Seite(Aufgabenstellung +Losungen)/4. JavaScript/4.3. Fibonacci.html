@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe4.3. Fibonacci</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 4.3. Fibonacci</h1>
+	<p><b>Schreiben Sie im Browser die <a href="https://cssgridgarden.com/#de" target="_blank" >Fibonacci-Funktion</a> in JavaScript und geben Sie die ersten 2000 Fibonacci-Zahlen 0,1,1,2,3,5,8,13,... auf der Konsole mit console.log() aus.
+	Achten Sie auf Performanz: Berechnen Sie jeden Fibonacci-Wert nur einmal. Speichern Sie zu diesem Zweck jede bereits berechnete Fibonacci-Zahl in einer Tabelle.</p>
+
+<p>QUELLCODE:</b></p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="ISO-8859-1">
+&lt;title>Insert title here&lt;/title>
+&lt;script>function fibonacci(n) {
+    var tabelle = [1,1]
+    for (let i=2; i &lt; n; i++) {
+        tabelle[i] = tabelle[i-1] + tabelle[i-2];
+        console.log(tabelle[i]);
+    }
+    return tabelle;
+}
+&lt;/script> 
+
+&lt;/head>
+&lt;body >
+	&lt;button type ="button" onclick="fibonacci(100)"> OUTPUT &lt;/button>
+&lt;/body>
+&lt;/html>
+}
+	</pre>
+	
+	<p><b>Was ist die größte Fibonacci-Zahl, die sich noch als Integer sicher speichern lässt ( <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER" target="_blank" >Number.MAX_SAFE_INTEGER</a>)? Die wievielte Fibonacci-Zahl in der Fibonacci-Folge ist das? </p>
+<pre>function fibonacci(n) {
+    var tabelle = [1,1]
+    const x = Number.MAX_SAFE_INTEGER;
+    var y = 0;
+    for (let i=2; i < n; i++) {
+        tabelle[i] = tabelle[i-1] + tabelle[i-2]
+        if(tabelle[i]>x){ 
+            y=tabelle[i-1];
+            console.log( "the number is  " + y + "  and in der Folge  "+ i--); 
+            break;
+        }
+    }  
+}
+fibonacci(100);
+
+//the number is  8944394323791464  kommt in der Stelle 78
+</pre>
+		<p><b>Was ist die größte Fibonacci-Zahl, die sich noch als Number speichern lässt (<a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_VALUE" target="_blank" >Number.MAX_VALUE</a>)? Die wievielte Fibonacci-Zahl in der Fibonacci-Folge ist das (d.h. welche Stelle in der Fibonacci-Folge)?  </p>
+<pre>function fibonacci(n) {
+    var tabelle = [1,1]
+    const x = Number.MAX_VALUE;
+    var y = 0;
+    for (let i=2; i < n; i++) {
+        tabelle[i] = tabelle[i-1] + tabelle[i-2]
+                console.log(tabelle[i]);
+
+        if(tabelle[i]>x){ 
+            y=tabelle[i-1];
+            console.log( "the number is  " + y + "  kommt in der Folge  "+ i--); 
+            break;
+        }
+    }
+    
+}
+fibonacci(1000);
+
+//the number is  1.3069892237633987e+308  kommt in der Stelle 1476</pre>
+
+<p><b>Wechseln Sie zu <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt" target="_blank" >BigInt</a>, um alle 2000 Fibonacci-Zahlen korrekt anzuzeigen. Geben Sie hier HTML- und JavaScript-Code zusammen ein: </b></p>
+<pre>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="ISO-8859-1">
+&lt;title>Insert title here&lt;/title>
+&lt;script>
+function fibonacci(n) {
+    var tabelle = [BigInt(1),BigInt(1)]
+ 
+    for ( i=2; i &lt; n; i++) {
+        tabelle[i] = BigInt(tabelle[i-1]) + BigInt(tabelle[i-2]);
+                console.log(tabelle[i]);
+
+ 
+    }
+    
+}
+
+
+&lt;/script> 
+
+&lt;/head>
+&lt;body >
+	&lt;button type ="button" onclick="fibonacci(2000)"> OUTPUT &lt;/button>
+&lt;/body>
+&lt;/html></pre>
+
+<p><b>Optional: Was ist die größte Fibonacci-Zahl, die Sie mit<code> BigInt </code>korrekt berechnet haben? An welcher Stelle in der Fibonacci-Folge steht diese? </b></p>
+<pre>the number is  8944394323791464n  kommt in der Stelle 78 </pre>
+</body>
+</html>

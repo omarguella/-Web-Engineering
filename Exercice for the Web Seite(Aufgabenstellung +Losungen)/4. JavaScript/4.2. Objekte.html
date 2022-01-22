@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe4.2. Objekte</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 4.2. Objekte</h1>
+	<p><b>Schreiben Sie die Prototypen Person und Auto in JavaScript, so dass jede Person weiß, welche Autos sie besitzt. Schreiben Sie eine Funktion<code> conflict()</code>, die feststellt, ob ein Auto von mehr als einer Person besessen wird.</b></p>
+
+<p>QUELLCODE:</b></p>
+	<pre>
+function Person(name, autos) {
+    this.name = name;
+    this.autos = autos;
+}
+
+function Auto(matrikel) {
+    this.matrikel = matrikel;
+}
+
+function conflict(listPersons, auto) {
+    var besitzer = 0;
+    listPersons.forEach((per)=>{
+       if (per.autos.includes(auto.matrikel)) {
+           besitzer++;
+       }
+    })  
+
+    if(besitzer > 1) 
+    console.log("Das Auto mit der kennzeichen "+ auto.matrikel + " hat Mehrere besitzer");
+    else
+     console.log("Das Auto mit der kennzeichen "+ auto.matrikel + "  hat ein oder kein besitzer");
+}
+
+var persons = [new Person("omar", ["11", "10", "12"]), new Person("guella", ["11", "2", "3"])]
+var auto = new Auto("11");
+
+conflict(persons, auto);
+
+
+}
+	</pre>
+	
+	
+
+	
+</body>
+</html>

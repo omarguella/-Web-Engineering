@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 3.1. Responsiv mit Flexbox Desktop-First</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 3.1. Responsiv mit Flexbox Desktop-First</h1>
+	<p><b>Spielen Sie zunächst das Flexbox <a href="http://flexboxfroggy.com/#de" target="_blank" >"Froggy-Spiel"</a>, um Flexbox zu lernen.</b></p>
+	<p> Implementieren Sie dann ausschließlich mit HTML und CSS Flexbox folgendes responsive Webdesign nach der Desktop-First-Strategie! </p>
+	<img src="https://kaul.inf.h-brs.de/we/assets/img/holy-grail1.png"  style="max-width:400px;width:100%">
+<p><b>QUELLCODE:</b> </p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="ISO-8859-1">
+&lt;title>Insert title here&lt;/title>
+&lt;/head>
+&lt;style>
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+ 
+
+.container {
+  
+  max-width: 1400px; 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  --columns: 12; 
+
+  --width: 0; 
+    
+  border: LavenderBlush 5px solid;
+  border-radius: 20px;
+  padding: 16px;
+  flex-basis: calc(var(--width) / var(--columns) * 100%);
+}
+
+@media screen and (max-width: 800px) {
+   aside.rechts { --width: 12; height: 10rem; }
+   nav.nav {  --width: 10;   }
+      main.links {  --width: 2;   }
+   
+   }
+  
+@media screen and (max-width:600px) {
+   nav.nav { --width: 12;  }
+   main.links { --width:6; height:20rem; }
+   aside.rechts { --width:6; height:20rem; }
+   nav.nav { order: 1; }
+   main.links { order: 2; }
+   aside.rechts { order: 3; }
+   
+}
+
+
+.header {
+  --width: 12;
+    height: 8rem;
+    background-color: red;
+  
+}
+
+.links {
+  --width: 2.5;
+  height: 64rem;
+    background-color: pink;
+  
+}
+
+.nav {
+  --width: 7;
+      background-color: blue;
+    height: 64rem;
+  
+}
+
+.rechts {
+  --width: 2.5;
+     background-color: lightgreen ;
+    height: 64rem;
+  
+}
+
+
+
+&lt;/style>
+
+&lt;body>
+
+
+	&lt;div class="container">
+		&lt;header class="header column">  &lt;/header>
+		&lt;main class="links column">  &lt;/main>
+				&lt;nav class="nav column">  &lt;/nav>
+		
+		&lt;aside class="rechts column">&lt;/aside>
+	&lt;/div>
+
+
+&lt;/body>
+&lt;/html>
+	</pre>
+	
+</body>
+</html>

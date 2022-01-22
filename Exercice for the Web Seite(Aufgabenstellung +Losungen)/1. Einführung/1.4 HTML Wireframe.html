@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1.4. HTML Wireframe </title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>1.4. HTML Wireframe</h1>
+	<p><b>Gegeben ist folgendes HTML-Wireframe:</b></p>
+	<img src="https://kaul.inf.h-brs.de/we/assets/img/wireframe01.jpg"  style="max-width:600px;width:100%">
+	<p> Mit welchem HTML-Code (ohne CSS, nur mit HTML-Tags) kann man diesen Wireframe exakt nachbilden?
+	<p>Die beiden Bilder finden Sie z.B. unter<a href="https://kaul.inf.h-brs.de/we/assets/img/tbl.jpg" target="_blank" > TBL </a>und <a href="https://kaul.inf.h-brs.de/we/assets/img/eich.jpg" target="_blank" > Eich.</a> </p>
+	<p><b>QUELLCODE:</b> </p>
+	<pre>
+	
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+ 
+&lt;h1 >Übung1.2: Inventors of the Web&lt;/h1>
+&lt;ul  >
+  &lt;li> &lt;b>&lt;u>&lt;mark> Tim Berners-Lee:&lt;/mark>&lt;/u>&lt;/b> WWW,HTTP,HTML,URI &lt;/li>
+  &lt;li>&lt;b>Hakom lie and Bert Bos:&lt;/b>CSS&lt;/li>
+  &lt;li>&lt;b>Brendan Eich:&lt;/b>JavaScript&lt;/li>
+&lt;/ul>  
+&lt;hr>
+&lt;h2>Inventors of the WWW&lt;/h2>
+
+&lt;table  border="10"  cellpadding="3" align="center" >
+   &lt;thead>
+    &lt;th  colspan="4"> Inventors of the Web  &lt;/th>
+  &lt;/thead>
+  &lt;tr>
+    &lt;th>WWW&lt;/th>
+    &lt;th>HTML&lt;/th>
+    &lt;th>CSS&lt;/th>
+    &lt;th>JavaScript&lt;/th>
+
+  &lt;/tr>
+  &lt;tr>
+    &lt;td bgcolor="yellow">&lt;b>Tim Berners-Lee&lt;/b>&lt;/td>
+    &lt;td bgcolor="yellow">&lt;b>Tim Berners-Lee&lt;/b>&lt;/td>
+    &lt;td>Hakom lie and Bert Bos&lt;/td>
+    &lt;td>Brendan Eich &lt;/td>
+
+  &lt;/tr>
+&lt;/table>
+&lt;hr>
+
+
+
+&lt;table  >
+  &lt;tr>
+    &lt;th colspan="2" >&lt;font size="5pt">&lt;u>Inventors of the WWW&lt;/u> &lt;/th> 
+  &lt;/tr>
+
+  &lt;tr>  
+    &lt;th>HTML&lt;/th>
+    &lt;th>JavaScript  &lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td >&lt;img src="https://kaul.inf.h-brs.de/we/assets/img/tbl.jpg">&lt;/td>
+    &lt;td>&lt;img src="https://kaul.inf.h-brs.de/we/assets/img/eich.jpg">&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>Tim Berners-Lee&lt;/td>
+    &lt;td>Brendan Eich &lt;/td>
+  &lt;/tr>
+&lt;/table>
+
+&lt;/body>
+&lt;/html>
+
+
+	</pre>
+
+	
+</body>
+</html>

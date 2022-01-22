@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 4.4. Topsort</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 4.4. Topsort</h1>
+	<p><b><code>[ ["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"] ]</code>In jedem Projekt fallen Aufgaben (Tasks) an. Zwischen den Aufgaben gibt es paarweise Abhängigkeiten. Z.B. kann Task2 von Task1 abhängen, d.h. erst muss Task1 fertig sein, bevor Task2 starten kann, weil es dessen Ergebnisse benötigt. Tasks können auch unabhängig voneinander sein und parallel ablaufen. In JavaScript können Sie die Abhängigkeiten in Arrays codieren, z.B. kann man bei nicht prüfen, ohne vorher gegessen zu haben. Transitive Abhängigkeiten müssen also berücksichtigt werden.</b></p>
+	<p>Schreiben Sie in JavaScript eine Funktion<code> topsort()</code>, die eine <a href="https://de.wikipedia.org/wiki/Topologische_Sortierung" target="_blank" >topologische Sortierung</a> berechnet. Topologische Sortierung ist eine Form von Sortierung. Sie kennen die Funktion Array.prototype.sort() und wissen, was als Ergebnis erwartet wird, nämlich eine sortiere Liste. Genauso ist das hier. Die Funktion topsort() soll eine sortierte Liste ausgeben, die keine der eingegebenen Abhängigkeiten verletzt.
+Achten Sie auf Performanz. Berechnen Sie die topologische Sortierung in linearer Zeit (Average Case).</p>
+
+<p>QUELLCODE:</b></p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="UTF-8"/>
+&lt;/head>
+&lt;body>
+&lt;div id="sortedArray">&lt;/div>
+&lt;script>
+
+document.getElementById("sortedArray").innerHTML = topsort([ ["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"] ])
+
+function topsort(array) {
+       var length = 0, finalArray = [], listPred = {};
+
+        for(var i in array) {
+                if(listPred[array[i][0]] == null) {
+                        listPred[array[i][0]] = 0;
+                        length++; }
+                
+                if(listPred[array[i][1]] == null) {
+                        listPred[array[i][1]] = 1;
+                        length++;} else {
+                        listPred[array[i][1]]++;
+              }
+      }
+        
+      while(length > 0) {
+             for(var i in listPred) {
+                        if(listPred[i] == 0) {
+                          finalArray.push(i);  
+                          for(var j in array) {
+                                if(array[j][0] === i) {
+                                      listPred[array[j][1]]--; }
+                                }
+                                
+                                delete listPred[i];
+                                length--;
+                      }
+              }
+       }
+        
+        return finalArray;
+}
+&lt;/script>
+&lt;/body>
+&lt;/html>
+
+
+</pre>
+<p><b>Testen Sie Ihren JavaScript-Code. Verwenden Sie für Ihre Tests die Funktion<a href="https://developer.mozilla.org/de/docs/Web/API/Console/assert" target="_blank" > console.assert<a>. Geben Sie hier Ihre Tests ein:</b></p>
+
+<p>QUELLCODE:</b></p>
+<pre> <br>
+var array = [ ["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"]];
+ 
+console.assert(topSort(array) === [ "schlafen", "essen", "studieren", "prüfen"], "Richtige Ergebnisse");
+<br>
+</pre>
+	
+</body>
+</html>

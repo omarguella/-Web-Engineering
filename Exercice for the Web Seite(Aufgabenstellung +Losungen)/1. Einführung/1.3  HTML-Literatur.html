@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1.3. HTML-Literatur lesen und Fragen beantworten</title>
+
+
+</head>
+
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>1.3. HTML-Literatur lesen und Fragen beantworten</h1>
+	<p><b>Arbeiten Sie ein HTML-Tutorial durch ( <a href="https://www.w3schools.com/html/default.asp" target="_blank" >W3 Schools</a> oder <a href="https://wiki.selfhtml.org/wiki/HTML/Tutorials/HTML-Einstieg" target="_blank">selfhtml</a> ) und beantworten Sie dazu folgende Fragen: </b></p>
+	 <p><b>Was ist HTML?</b></p>
+	<p>HTML ist HyperText Markup Sprache für Webseiten.</p>
+	<hr>
+	<p><b>Wie kann man eine geschachtelte geordnete Liste der Schachtelungstiefe 3 erzeugen?  <button class="execute">Code Ausfuehren</button></b></p>
+	<pre> 
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;body>
+
+&lt;h2>geschachtelte geordnete &lt;/h2>
+&lt;p>List:&lt;/p>
+
+&lt;ol>
+ &lt;li>Erste Element&lt;/li>
+ &lt;li>Zweite Element
+  &lt;ol>
+    &lt;li>Schachtelungstiefe 1&lt;/li>
+    &lt;ol>
+    &lt;li>Schachtelungstiefe 2&lt;/li>
+	&lt;/ol>
+   &lt;/ol>
+ &lt;/li>
+ &lt;li>Dritte Element&lt;/li>
+&lt;/ol>
+
+&lt;/body>
+&lt;/html>
+</pre><hr>
+	
+	<p><b>Wie ist eine HTML-Tabelle aufgebaut? <button class="execute">Code Ausfuehren</button> </b></p>
+	<pre>
+&lt;table >
+  &lt;tr>
+    &lt;th>Titel 1&lt;/th>
+    &lt;th>Titel 2&lt;/th>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>Element des Titel 1&lt;/td>
+    &lt;td>Element des Titel 2&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+     &lt;td>Element des Titel 1&lt;/td>
+    &lt;td>Element des Titel 2&lt;/td>
+  &lt;/tr>
+&lt;/table>
+</pre>	<hr>
+	
+	<p><b>Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</b></p>
+	<p>Es gibt spezielle Zeichen, die nicht verwendet werden dürfen, weil sie im Dateisystem eine Bedeutung haben. Dazu gehören der Doppelpunkt und die Schrägstriche / und \ als Trennzeichen für Laufwerksbuchstaben und Ordner, und die Zeichen * und ? als Jokerzeichen in der Dateisuche.  </p>	
+<hr>
+	<p><b>Wie baut man in HTML ein Menü? <button class="execute">Code Ausfuehren</button> </b></p>
+	<pre>
+&lt;div class="menu">
+  &lt;a href="#" class="active">Home&lt;/a>
+  &lt;a href="#">link 1&lt;/a>
+  &lt;a href="#">Link 2&lt;/a>
+  &lt;a href="#">Link 3&lt;/a>
+  &lt;a href="#">Link 4&lt;/a>
+&lt;/div>
+</pre>
+<hr>
+	<p><b>Welche Attribute sollte man bei Bildern wie verwenden?</b></p>
+	<p>src attribute specifies the path (URL) to the image. alt attribute should describe the image. style,width and height attribute to specify the width and height of an image.</p>
+
+</body>
+</html>

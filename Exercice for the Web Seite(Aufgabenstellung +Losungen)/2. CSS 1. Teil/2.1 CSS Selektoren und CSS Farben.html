@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 2.1. CSS Selektoren und CSS Farben</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 2.1. CSS Selektoren und CSS Farben</h1>
+	<p><b>Berechnen Sie die Spezifität folgender CSS-Selektoren:</b></p>
+	<p style="color:#FF0000"><b>1.div div div:focus .inner</b></p>
+	<p style="color:#FF0000"><b>2.h1 + div.main</b></p>
+	<p style="color:#FF0000"><b>3.div a:link[href*='h-brs']</b></p>
+	<p style="color:#FF0000"><b>4.nav > a:hover::before</b></p>
+	<p style="color:#FF0000"><b>5.ul#primary-nav li.active</b></p>
+
+<p>1: div div div:focus .inner = 32 Spezifität </p>
+<p>2: h1 + div.main = 12 Spezifität </p>
+<p>3: div a:link[href*='h-brs'] = 22 Spezifität </p>
+<p>4: nav > a:hover::before =13 Spezifität </p>
+<p>5: ul#primary-nav li.active = 112 Spezifität </p>
+	
+	<p><b>Rechnen Sie folgende RGB-Werte in HSL-Werte um:<b></p>
+	<p style="color:#FF0000"><b>1. #ffffff</b></p>
+	<p style="color:#FF0000"><b>2.#000</b></p>
+	<p style="color:#FF0000"><b>3.#ab0978</b></p>
+	<p style="color:#FF0000"><b>4.rgb(127,255,33)</b></p>
+	<p style="color:#FF0000"><b>5.rgba(255,127,33,0.8)</b></p>
+
+<p>1: #ffffff = HSL (0,0%,1000%)</p>
+<p>2: #000= HSL (0,0%,0%)</p>
+<p>3: #ab0978=HSL(319, 90%, 35%) </p>
+<p>4: rgb(127,255,33)=HSL(95, 100%, 56%) </p>
+<p>5: rgba(255,127,33,0.8) = hsla(25, 100%, 56%, 0.8) </p>
+	
+	
+	
+</body>
+</html>

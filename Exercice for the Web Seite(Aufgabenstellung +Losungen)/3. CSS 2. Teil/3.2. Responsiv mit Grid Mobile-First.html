@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 3.2. Responsiv mit Grid Mobile-First</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe  3.2. Responsiv mit Grid Mobile-First</h1>
+	<p><b>Spielen Sie zunächst das <a href="https://cssgridgarden.com/#de" target="_blank" >Grid Garden </a>-Spiel, um Grid Layout zu lernen. </b></p>
+	<p>Implementieren Sie dann das gleiche responsive Webdesign wie in Aufgabe 3.1 allerdings mit Grid und der Mobile-First-Strategie! Vermeiden Sie diesmal außerdem das Erscheinen von Scrollbars. </p>
+	
+<p><b>QUELLCODE:</b> </p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;/head>
+
+    
+    &lt;style>
+       header { 
+           grid-area: header;
+           background-color: red;
+        }
+
+       main { 
+           grid-area: main;
+           background-color: blue;
+        }
+
+       aside.left { 
+           grid-area: left;
+           background-color: lightgreen; 
+        }
+
+       aside.right { 
+           grid-area: right; 
+           background-color: pink; 
+        }
+
+        .body {
+                display: grid;
+                min-height: 100vh;
+                height: 100vh;
+                grid-template-areas:
+                              "header"
+                              "left"
+                              "main"
+                              "main"
+                              "right";
+        }
+
+       
+
+        @media screen and (min-width: 500px) {
+        	.body {
+	        display: grid;
+	        grid-template-areas: "header header"
+	                             "left main "
+                                 "right right"
+                                 ;
+	        grid-template-columns: 1fr 2fr;
+	        grid-template-rows: 150px 1fr 100px 30px;
+        }
+        
+    } 
+
+        @media screen and (min-width: 800px) {
+        	.body {
+	        display: grid;
+	        grid-template-areas: "header header header"
+	                             "left main right";
+	        grid-template-columns: 150px 1fr 150px;
+	        grid-template-rows: 100px 1fr 30px;
+        }
+    }
+
+        
+    &lt;/style>
+    
+        &lt;body class="body">
+        &lt;header >&lt;/header>
+        &lt;main >&lt;/main>
+        &lt;aside class="left">&lt;/aside>
+        &lt;aside class="right">&lt;/aside>
+    &lt;/body>
+&lt;/html>
+	</pre>
+	
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5.3. TopSort als WebApp</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>5.3. TopSort als WebApp</h1>
+	<p><b>Schreiben Sie eine Web-Oberfläche, in der man beliebige Beziehungen (Vorrang-Relationen) eingeben kann, für die dann die topologische Sortierung per Knopfdruck auf der Webseite ausgegeben wird. Für die Eingabe können Sie<a href="https://www.w3schools.com/html/html_forms.asp" target="_blank" > HTML5-Eingabefelder <a>oder <a href="https://www.w3schools.com/tags/att_global_contenteditable.asp" target="_blank" >contentEditable</a> verwenden.</b></p>
+	<p>Geben Sie die komplette HTML-Seite exkl. JavaScript-Quelltext an. Schreiben Sie Ihren JavaScript-Quelltext in eine separate Datei. </p>
+<p>QUELLCODE:</b></p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html lang="de">
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+  &lt;title>TopSort&lt;/title>
+    &lt;title>Aufgabe 5.3 TopSort&lt;/title>
+   
+&lt;/head>
+
+&lt;body>
+    &lt;header>
+        &lt;h1>Aufgabe 5.3 TopSort&lt;/h1>
+    
+    &lt;/header>
+        &lt;p>&lt;b>NEUE RELATION HINFUGEN &lt;/b>&lt;button onclick="newRelation()">neue Relation&lt;/button>&lt;/p>
+        
+
+        &lt;form id="newRelation"> &lt;/form> &lt;br>
+        &lt;input id="newRelation-submit"  onclick="inputGet()"  type="submit" value="DONE">
+        &lt;p id="ergbnis" > Eine Mögliche topologische Sortierung: &lt;/p>
+
+   
+    &lt;script src="topSort.js">&lt;/script>
+&lt;/body>
+&lt;script>
+
+
+
+
+&lt;/script>
+&lt;/html> 
+	</pre>
+	
+	
+		<p>Fügen Sie Ihren JavaScript-Quelltext aus der separaten Datei in das folgende Textarea ein:</p>
+
+<p><b>topSort.js:</b></p>
+	<pre> 
+
+var formNum = 0,arrRelations = [];
+function newRelation() {
+let i=0;
+    while(i!=2) {
+			i++;
+			var newIn = 'newRelation-input-' + formNum++;
+			var input = document.createElement("input");
+		        input.type = "text";
+				input.id = newIn;	
+			document.getElementById("newRelation").appendChild(input);
+    }
+    
+}
+function inputGet() {
+    var d2Arr = [];
+    for (i = 0; i < formNum; i++) {
+        d2Arr.push(document.getElementById(`newRelation-input-${i}`).value);
+        if (i % 2 != 0) {arrRelations.push(d2Arr); d2Arr = [];
+         }
+     }
+	topsort(arrRelations);
+}
+
+
+function topsort(array) {
+       var length = 0, finalArray = [], listPred = {};
+
+        for(var i in array) {
+                if(listPred[array[i][0]] == null) {
+                        listPred[array[i][0]] = 0;
+                        length++; }
+                
+                if(listPred[array[i][1]] == null) {
+                        listPred[array[i][1]] = 1;
+                        length++;} else {
+                        listPred[array[i][1]]++;
+              }
+      }
+        
+      while(length > 0) {
+             for(var i in listPred) {
+                        if(listPred[i] == 0) {
+                          finalArray.push(i);  
+                          for(var j in array) {
+                                if(array[j][0] === i) {
+                                      listPred[array[j][1]]--; }
+                                }
+                                
+                                delete listPred[i];
+                                length--;
+                      }
+              }
+       }
+        
+document.getElementById("ergbnis").innerHTML = finalArray.toString();
+}
+
+
+	</pre>
+	
+	
+</body>
+</html>

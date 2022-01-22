@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+<script>
+var myChart = new Chart("myChart", {
+    type: "bar",
+    data: {},
+    options: {}
+  });
+  var xValues = ["Baden-Württem­berg", "Bayern", "Berlin", "Branden­burg","Bremen","Hamburg","Nord­rhein-West­falen","Sachsen"];
+var yValues = [880657, 1191561 , 285058, 192271, 40950, 118126, 1221048 ,544655];
+var barColors = ["red", "green","blue","orange","yellow","pink","gray","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },options: {
+  
+      legend: {display: false},
+
+    title: {
+      display: true,
+      text: "Fallzahlen in Deutschland",
+
+    }
+  }
+});
+</script>
+
+<body>
+    
+</body>
+</html>

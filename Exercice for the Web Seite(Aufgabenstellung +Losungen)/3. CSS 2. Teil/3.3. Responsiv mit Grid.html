@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Aufgabe 3.3. Responsiv mit Grid</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>Aufgabe 3.3. Responsiv mit Grid</h1>
+	<p><b>Implementieren Sie folgende Landing Page responsiv mit Grid Layout. Vermeiden Sie außerdem das Erscheinen von Scrollbars so weit wie möglich. </b></p>
+	<p>Implementieren Sie dann das gleiche responsive Webdesign wie in Aufgabe 3.1 allerdings mit Grid und der Mobile-First-Strategie! Vermeiden Sie diesmal außerdem das Erscheinen von Scrollbars. </p>
+	<img src="https://kaul.inf.h-brs.de/we/assets/img/landing.png"  style="max-width:600px;width:100%">
+<p><b>QUELLCODE:</b> </p>
+	<pre>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;head>
+&lt;meta charset="UTF-8">
+&lt;/head>
+&lt;style>
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+   height:100px;
+	
+}
+
+body {
+	display: grid;
+	grid-template: "a" "b" "c" "d";
+	min-height: 100vh;
+}
+
+header nav ul {
+	background-color: #414141;
+	grid-area: a;
+	padding: 30px;
+	display: flex;
+	justify-content: center;
+	gap: 90px;
+	list-style: none;
+	
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+
+h1 {
+	grid-area: b;
+	text-align: center;
+	background-color: #d9cccc;
+	padding: 30px;
+}
+.content {
+	grid-area: c;
+	display: flex;
+	justify-content: center;
+	gap: 120px;
+	background-color: #d9cccc;
+	padding: 15px;
+	   height:600px;
+	
+}
+
+.content img {
+    height: 90%;
+     border: black 1px solid;
+  border-radius: 20px;
+    
+}
+
+.content .paragraph {
+    text-align: center;
+    padding-top: 100px;
+}
+
+footer {
+    grid-area: d;
+    background-color: #010224;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 20px;
+      font-size: 20px;
+}
+
+button {
+    background-color: orange;
+    width: 300px;
+   height:40px;
+  border-radius: 8px;
+   
+    
+}
+
+&lt;/style>
+
+&lt;body>
+	&lt;header>
+		&lt;nav>
+			&lt;ul>
+				&lt;li>&lt;a href="#">The book series&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">Testemonials&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">The Author&lt;/a>&lt;/li>
+				&lt;li>&lt;a href="#">Free resources&lt;/a>&lt;/li>
+			&lt;/ul>
+		&lt;/nav>
+	&lt;/header>
+
+	&lt;h1 class="title">You Dont know JavaScript&lt;/h1>
+
+	&lt;div class="content">
+		&lt;img src="https://kaul.inf.h-brs.de/we/assets/img/landing-img.png"
+			alt="img" />
+		&lt;div class="paragraph">
+			Dont just drift through JavaScript &lt;br> &lt;br> &lt;br>
+			Understand how JavaScript works &lt;br> &lt;br> &lt;br> Start
+			your journey through the bumpy side of JavaScript &lt;br> &lt;br>
+			&lt;br>
+			&lt;button>ORDER YOUR COPY NOW&lt;/button>
+		&lt;/div>
+	&lt;/div>
+
+
+
+	&lt;footer>
+		&lt;p>The first ebook in the book series is absolutely free.&lt;/p>
+		&lt;button>FIND OUT MORE ABOUT THIS OFFER&lt;/button>
+	&lt;/footer>
+&lt;/body>
+&lt;/html>
+	</pre>
+	
+</body>
+</html>
