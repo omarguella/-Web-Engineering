@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>5.1. Performanzmessungen von DOM-Operationen</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>5.1. Performanzmessungen von DOM-Operationen</h1>
+	<p><b>Implementieren Sie Performanzmessungen zum Vergleich von <code style="color:#ff0000"> innerHTML, innerText, textContent und outerHTML </code >selbstständig in JavaScript durch Nutzung der <a href="https://www.w3schools.com/js/js_htmldom.asp" target="_blank" >DOM API</a>. Geben Sie die Messergebnisse als Tabelle aus. Verwenden Sie die eingebauten Zeitmess-Funktionen <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/now" target="_blank" >performance.now ()</a>,
+	siehe auch<a href="https://developers.google.com/web/updates/2012/08/When-milliseconds-are-not-enough-performance-now" target="_blank" > When-milliseconds-are-not-enough-performance-now </a>. Suchen Sie eine möglichst kurze und elegante Lösung.Dabei ist zu beachten, dass Browser, um potenzielle Sicherheitsbedrohungen 
+	wie <a href="https://spectreattack.com/" target="_blank" > Spectre </a>oder<a href="https://de.wikipedia.org/wiki/Meltdown_(Sicherheitsl%C3%BCcke)" target="_blank" > Meltdown</a> zu minimieren, den zurückgegebenen Wert normalerweise um einen bestimmten Betrag runden. Dies führt zu einer gewissen Ungenauigkeit.
+	Beispielsweise rundet Firefox die zurückgegebene Zeit in Schritten von 1 Millisekunde. Diese Zwangsrundung kann man jedoch wiederum abschalten mittels Firefox
+	setting <code  style="color:#ff0000" >aprivacy.reduceTimerPrecision </code>,<a href="https://stackoverflow.com/questions/50117537/how-to-get-microsecond-timings-in-javascript-since-spectre-and-meltdown" target="_blank" > siehe </a>How to get microsecond timings in JavaScript since Spectre and Meltdown.</b></p>
+	<p>Geben Sie die komplette HTML-Seite inkl. JavaScript-Quelltext an: </p>
+<p>QUELLCODE:</b></p>
+	<pre> &lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+&lt;meta charset="ISO-8859-1">
+   
+&lt;/head>
+      
+
+&lt;body>
+
+    &lt;div  >
+    &lt;h1 id="text">dieser Text wiederholt sich 10000 Mal&lt;/h1>
+		&lt;/div>
+    &lt;table>
+       &lt;tr>
+            &lt;td>innerHtml &lt;/td>
+            &lt;td id="innerHtml">&lt;/td>
+       &lt;/tr>
+
+       &lt;tr>
+            &lt;td> innerText&lt;/td>
+            &lt;td id="innerText">&lt;/td>
+       &lt;/tr>
+        
+       &lt;tr>
+            &lt;td>textContent&lt;/td>
+            &lt;td id="textContent">&lt;/td>
+       &lt;/tr>
+        
+       &lt;tr>
+            &lt;td>outerHtml
+            &lt;/td>&lt;td id="outerHtml">&lt;/td>
+       &lt;/tr>    
+    &lt;/table>
+
+&lt;/body>
+  &lt;script > var list = document.getElementById('text');
+        let time = performance.now();
+        for (var i = 0; i &lt; 10000; i++) 
+        {list.innerHTML ;}
+        let timeNew = performance.now();
+        document.getElementById("innerHtml").textContent = `${timeNew -time}ms`;
+        
+         time = performance.now();
+        for (var i = 0; i &lt; 10000; i++) 
+        {list.innerText ;}
+        timeNew = performance.now();
+        document.getElementById("innerText").textContent = `${timeNew - time}ms`;
+        
+        time = performance.now();
+        for (var i = 0; i &lt; 10000; i++)
+        {list.textContent ;}
+        timeNew = performance.now();
+        document.getElementById("textContent").textContent = `${timeNew - time}ms`;
+        
+        time = performance.now();
+        for (var i = 0; i &lt; 10000; i++)
+        {  list.outerHtml ; }
+       timeNew = performance.now();    
+        document.getElementById("outerHtml").textContent = `${timeNew - time} ms`;
+        &lt;/script>
+&lt;/html>
+
+
+	</pre>
+	
+	
+	
+	
+</body>
+</html>
