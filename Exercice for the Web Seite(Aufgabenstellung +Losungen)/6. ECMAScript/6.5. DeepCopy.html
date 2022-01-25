@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.5. DeepCopy</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>6.5. DeepCopy</h1>
+	<p><b>Schreiben Sie eine rekursive Funktion deepCopy( struct ) als ES6-Ausdruck, so dass beliebig geschachtelte Arrays und Objekte struct tiefenkopiert werden können
+	. Verwenden Sie zu diesem Zweck den<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank" > konditionalen ternären Operator </a> ,<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" >  Array.map()</a>,
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries" target="_blank" >Object.fromEntries() </a>und <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries" target="_blank" >Object.entries()</a>. Verwenden Sie dabei nur Arrow Functions und Ausdrücke, 
+	keine Anweisungen, keine Blöcke. Verwenden Sie nicht die JSON-Methoden. </b></p>
+	<p>Geben Sie die HTML-Seite inkl. ES6-Code inkl. Tests hier ein. Verwenden Sie für Ihre Tests die Funktion <a href="https://developer.mozilla.org/de/docs/Web/API/Console/assert" target="_blank" >console.assert<a/>. </p>
+<p>QUELLCODE:</b></p>
+	<pre>
+	const struct = {
+    name: "omar",
+    vorname: "guella",
+    objekt: {
+        matrikel: ["student", 123]
+    }
+}
+const deepCopy = (struct) => {
+    return Object.fromEntries(Object.entries(struct));
+}
+const copy = deepCopy(struct);
+
+console.assert(struct === copy, "richtig copiert");
+console.assert(struct !== copy, "ACHTUNG nicht richtig copiert");
+	</pre>
+	
+	
+	
+	
+</body>
+</html>

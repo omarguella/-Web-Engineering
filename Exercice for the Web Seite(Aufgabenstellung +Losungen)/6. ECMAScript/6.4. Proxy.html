@@ -1,17 +1,75 @@
-function topsort(array) {
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.4. Proxy</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>6.4. Proxy</h1>
+	<p><b>Erweitern Sie Ihre Vorrang-Klasse um Logging, indem Sie ein <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy" target="_blank" >Proxy <a/>einfügen. Lassen Sie sich vom Logger bei jedem Schritt ausgeben, wie viele der Vorrangrelationen noch übrig bleiben.
+	Verwenden Sie so weit wie möglich High-Level-Methoden wie<a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank" > Object.keys </a>und High-Level-Datenstrukturen wie Map und Set und deren Methoden, anstatt mühsam von Hand zu
+	iterieren und zu zählen. </b></p>
+	<p>Geben Sie die HTML-Seite inkl. ES6-Code inkl. Tests hier ein. Verwenden Sie für Ihre Tests die Funktion <a href="https://developer.mozilla.org/de/docs/Web/API/Console/assert" target="_blank" >console.assert<a/>. </p>
+<p><b>QUELLCODE:</b></p>
+	<pre>
+	function topsort(array) {
 
 
     var Knoten = [];
     var pack = [];
     var gesehen = [];
 
-    for (var k = 0; k < array.length; k++) {
-        if (Knoten.indexOf(array[k][0]) < 0) Knoten.push(array[k][0]);
-        if (Knoten.indexOf(array[k][1]) < 0) Knoten.push(array[k][1]);
+    for (var k = 0; k &lt; array.length; k++) {
+        if (Knoten.indexOf(array[k][0]) &lt; 0) Knoten.push(array[k][0]);
+        if (Knoten.indexOf(array[k][1]) &lt; 0) Knoten.push(array[k][1]);
     }
 
     Knoten.forEach(function (knote) {
-        if (gesehen.indexOf(knote) < 0) {
+        if (gesehen.indexOf(knote) &lt; 0) {
             sort(knote);
         }
     });
@@ -19,7 +77,7 @@ function topsort(array) {
     function sort(knote) {
         gesehen.push(knote);
         array.forEach(function (Kante) {
-            if (gesehen.indexOf(Kante[1]) < 0 && Kante[0] == knote) {
+            if (gesehen.indexOf(Kante[1]) &lt; 0 && Kante[0] == knote) {
                 sort(Kante[1]);
             }
         });
@@ -55,15 +113,15 @@ try {
 
 
     // Loop to create 2D array using 1D array
-    for (var i = 0; i < gfg.length; i++) {
+    for (var i = 0; i &lt; gfg.length; i++) {
         gfg[i] = new Array(2);
     }
 
     var h = 0;
 
     // Loop to initialize 2D array elements.
-    for (let i = 0; i < array.length / 2; i++) {
-        for (let j = 0; j < 2; j++) {
+    for (let i = 0; i &lt; array.length / 2; i++) {
+        for (let j = 0; j &lt; 2; j++) {
             gfg[i][j] = array[h++];
         }
     }
@@ -102,7 +160,7 @@ for (const next of arrayTest) {
     arrayfinal.push(next);
 }
 var ausgabe = ["schlafen", "essen", "studieren", "prüfen"];
-for (let i = 0; i < arrayfinal.length; i++) {
+for (let i = 0; i &lt; arrayfinal.length; i++) {
 
     console.assert(ausgabe[i] === arrayfinal[i], `diese beide Werte ${ausgabe[i]} und ${arrayfinal[i]} sind nicht gleich`);
 }
@@ -125,4 +183,11 @@ while (true) {
     console.assert(final.includes(out["value"]));
     console.assert(ausgabe[0] === out["value"]);
     testArraySequence.splice(0, 1);
-}
+} 
+	</pre>
+	
+	
+	
+	
+</body>
+</html>

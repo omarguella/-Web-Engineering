@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.1. Klammerpaare</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>6.1. Klammerpaare</h1>
+	<p><b>Schreiben Sie eine Webseite, in die man eine Zeichenkette mit beliebigen Buchstaben, Zahlen und Sonderzeichen eingeben kann, die beliebig geschachtelte Klammern <code>[...], (...) und {...} </code>enthält, so dass sofort geprüft wird, ob alle Klammerpaare korrekt geschachtelt sind. Das Eingabefeld der Zeichenkette soll rot gefärbt werden, wenn es ein Klammerpaar gibt, das falsch geschachtelt ist. </b></p>
+	<p>Geben Sie die HTML-Seite inkl. ES6-Code inkl. Tests hier ein. Verwenden Sie für Ihre Tests die Funktion <a href="https://developer.mozilla.org/de/docs/Web/API/Console/assert" target="_blank" >console.assert<a/>. </p>
+<p>QUELLCODE:</b></p>
+	<pre>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+
+&lt;/head>
+&lt;body>
+
+
+&lt;h1>Write Your text im Field and see if you have forgot to Close any nested brackets&lt;/h1>
+
+&lt;textarea id="textarea" rows="4" cols="50" placeholder="write your Text and please use some nested brackets" >
+&lt;/textarea>
+
+  &lt;button class="button" onclick = check() >check Text&lt;/button>
+&lt;script>
+const zeichen = {
+    openklamma: 0,
+    openEckigeKlammer: 0,
+    openGeschweifteKlammer: 0,
+
+};
+
+
+function check() {
+  const text= document.getElementById("textarea").value;
+    for (let i of text) {
+
+        if (i == "(") {
+            zeichen.openklamma++;
+        }
+        if (i == "{") {
+            zeichen.openGeschweifteKlammer++;
+        }
+        if (i == "[") {
+
+            zeichen.openEckigeKlammer++;
+        }
+
+        if (i == ")") {
+            zeichen.openklamma--;
+        }
+        if (i == "}") {
+
+            zeichen.openGeschweifteKlammer--;
+        }
+        if (i == "]") {
+            zeichen.openEckigeKlammer--;
+        }
+
+    }
+
+    var s = (zeichen.openklamma + zeichen.openGeschweifteKlammer + zeichen.openEckigeKlammer) == 0;
+
+    console.assert(s, 'the Text IS NOT ACCEPTED');
+
+    if (s == false) {
+        document.getElementById("textarea").style="background-color:red;";
+    }
+
+}
+ 
+ 
+
+&lt;/script>
+
+&lt;/body>
+&lt;/html>
+
+	</pre>
+	
+	
+	
+	
+</body>
+</html>

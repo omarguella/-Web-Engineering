@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>6.2. Topologische Iterierbarkeit</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*Quelle W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+/* Quelle WE APP*/
+.box {
+    border: thin solid black;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1rem;
+    font-size: x-large;
+    font-weight: bolder;
+    width: fit-content;
+    box-shadow: 4px 4px 3px 0 #777777;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+}
+</style>	
+
+<body id="container" >
+	<div  id="aufgabe"><h1>6.2. Topologische Iterierbarkeit</h1>
+	<p><b>Schreiben Sie eine ES6-Klasse<code style="color:#ff0000"> Vorrang</code> für Vorrangrelationen, z.B.<code style="color:#ff0000"> new Vorrang([ ["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"] ])</code>
+	. Wählen Sie eine Implementierung, die universell gültig, 
+	also nicht nur für dieses Beispiel gilt. (Überlegen Sie sich, über welche Properties und Methoden eine solche Klasse 
+	verfügen sollte und wie TopSort hier hineinspielt. Topologische Iterierbarkeit und topologischer Generator sind jedoch 
+	Gegenstand der nächsten Übungen weiter unten auf diesem Übungsblatt und sollten für die folgenden Aufgaben aufgespart werden.)
+<br><br>
+Stellen Sie bei Ihrer Klasse die topologische Iterierbarkeit her (zunächst über das Iterationsprotokoll, ohne Generator, ohne yield).
+<br><br>
+Zum Beispiel soll dadurch folgende for ... of loop möglich werden, mit der die Elemente in topologischer Sortierung durchlaufen werden: </b></p>
+	<p> Auf der Console wird dadurch ausgegeben: </p>
+	
+	<div /*Web App*/ class="box code"><span> schlafen</span><br><span> essen</span><br><span> studieren</span><br><span> prüfen</span><br></div>
+	<p>Wählen Sie eine Implementierung, die universell gültig, also nicht nur für dieses Beispiel gilt.
+	Eine topologische Sortierung im Konstruktor vorzuberechnen, wäre eine triviale Lösung. Versuchen Sie es stattdessen "lazy computation", 
+	d.h. erst beim Aufruf von <code style="color:#ff0000">next()</code> wird die erforderliche Berechnung durchgeführt. Nebenbedingung ist minimaler Aufwand, d.h. bei jedem <code style="color:#ff0000">next()</code> erneut alles zu sortieren,
+	wird nicht als Lösung akzeptiert.
+	Verwenden Sie so weit wie möglich High-Level-Methoden wie <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" target="_blank" > Object.keys</a> und High-Level-Datenstrukturen wie<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map" target="_blank" > Map</a> und <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set" target="_blank" >Set </a>und deren Methoden,
+	anstatt mühsam von Hand zu iterieren und zu zählen. </p>
+<p>Geben Sie die HTML-Seite inkl. ES6-Code inkl. Tests hier ein. Verwenden Sie für Ihre Tests die Funktion <a href="https://developer.mozilla.org/de/docs/Web/API/Console/assert" target="_blank" >console.assert<a/>. </p>
+<p><b>QUELLCODE:</b> <button class="execute">Code Ausfuehren</button></b></p>
+	<pre>function topsort(array) {
+
+
+    var Knoten = [];
+    var pack = [];
+    var gesehen = [];
+
+    for (var k = 0; k &lt; array.length; k++) {
+        if (Knoten.indexOf(array[k][0]) &lt; 0) Knoten.push(array[k][0]);
+        if (Knoten.indexOf(array[k][1]) &lt; 0) Knoten.push(array[k][1]);
+    }
+
+    Knoten.forEach(function (knote) {
+        if (gesehen.indexOf(knote) &lt; 0) {
+            sort(knote);
+        }
+    });
+
+    function sort(knote) {
+        gesehen.push(knote);
+        array.forEach(function (Kante) {
+            if (gesehen.indexOf(Kante[1]) &lt; 0 && Kante[0] == knote) {
+                sort(Kante[1]);
+            }
+        });
+        pack.push(knote);
+    }
+    return pack.reverse();
+}
+
+class Vorrang {
+    [Symbol.iterator]() {
+        return this.array.values()
+    }
+    constructor(array) {
+        this.array = topsort(array);
+    }
+
+
+}
+
+
+function check() {
+    try {
+
+        var text = "schlafen,studieren,essen,studieren,studieren,prüfen";
+        console.log(text);
+
+        var array = text.split(",").map(String);
+        if ((array.length % 2) != 0) {
+            throw new Error(' Geben Sie bitte eine Komplette Vorrangrelationen');
+        }
+
+        var gfg = new Array(array.length / 2);
+
+
+        // Loop to create 2D array using 1D array
+        for (var i = 0; i &lt; gfg.length; i++) {
+            gfg[i] = new Array(2);
+        }
+
+        var h = 0;
+
+        // Loop to initialize 2D array elements.
+        for (let i = 0; i &lt; array.length / 2; i++) {
+            for (let j = 0; j &lt; 2; j++) {
+                gfg[i][j] = array[h++];
+            }
+        }
+
+        const studentenLeben = new Vorrang(gfg);
+
+        var final = [];
+        for (const next of studentenLeben) {
+            final.push(next);
+        }
+
+        console.log(final);
+
+    } catch (err) {
+
+        console.log(err.message);
+    }
+}
+//RUN
+check()
+
+//TEST
+function test() {
+    const array = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"]
+    ]);
+    var arrayfinal = [];
+    for (const next of array) {
+        arrayfinal.push(next);
+    }
+    var ausgabe= ["schlafen", "essen", "studieren", "prüfen"];
+    for (let i = 0; i &lt; arrayfinal.length; i++) {
+
+        console.assert(ausgabe[i] === arrayfinal[i], `diese beide Werte ${ausgabe[i]} und ${arrayfinal[i]} sind nicht gleich`);
+    }
+}
+test()
+	</pre>
+	<p>Betten Sie Ihren ECMAScript-Code in eine Webseite ein, so dass man die Vorrangrelation dort eingeben kann. Geben Sie hier die HTML-Seite an:</p>
+	<p><b>QUELLCODE: </b> <button class="execute">Code Ausfuehren</button></b></p>
+
+	<pre>&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+
+&lt;/head>
+&lt;body>
+
+
+&lt;h1>Geben Sie Bitte eine Vorrangrelationen in Dieser Schreibweise  :&lt;br>
+           schlafen,studieren,essen,studieren,studieren,prüfen&lt;/h1>
+&lt;br>
+
+
+&lt;textarea id="textarea" rows="4" cols="50" placeholder="write your Text and please use some nested brackets" >
+&lt;/textarea>
+
+  &lt;button class="button" onclick = check() >check Text&lt;/button>
+
+&lt;br>
+
+&lt;textarea id="textarea2" rows="4" cols="50" placeholder="your result" >
+&lt;/textarea>
+ &lt;script>
+
+function topsort(array) {
+
+
+    var Knoten = [];
+    var pack = [];
+    var gesehen = [];
+
+    for (var k = 0; k &lt; array.length; k++) {
+        if (Knoten.indexOf(array[k][0]) &lt; 0) Knoten.push(array[k][0]);
+        if (Knoten.indexOf(array[k][1]) &lt; 0) Knoten.push(array[k][1]);
+    }
+
+    Knoten.forEach(function (knote) {
+        if (gesehen.indexOf(knote) &lt; 0) {
+            sort(knote);
+        }
+    });
+
+    function sort(knote) {
+        gesehen.push(knote);
+        array.forEach(function (Kante) {
+            if (gesehen.indexOf(Kante[1]) &lt; 0 && Kante[0] == knote) {
+                sort(Kante[1]);
+            }
+        });
+        pack.push(knote);
+    }
+    return pack.reverse();
+}
+
+class Vorrang {
+    [Symbol.iterator]() {
+        return this.array.values()
+    }
+    constructor(array) {
+        this.array = topsort(array);
+    }
+
+
+}
+
+
+function check() {
+    try {
+
+        var text= document.getElementById("textarea").value;
+        console.log(text);
+
+        var array = text.split(",").map(String);
+        if ((array.length % 2) != 0) {
+            throw new Error(' Geben Sie bitte eine Komplette Vorrangrelationen');
+        }
+
+        var gfg = new Array(array.length / 2);
+
+
+        // Loop to create 2D array using 1D array
+        for (var i = 0; i &lt; gfg.length; i++) {
+            gfg[i] = new Array(2);
+        }
+
+        var h = 0;
+
+        // Loop to initialize 2D array elements.
+        for (var i = 0; i &lt; array.length / 2; i++) {
+            for (var j = 0; j &lt; 2; j++) {
+                gfg[i][j] = array[h++];
+            }
+        }
+
+        const studentenLeben = new Vorrang(gfg);
+
+        var final = [];
+        for (const next of studentenLeben) {
+            final.push(next);
+        }
+		
+		//test
+		test();
+
+        document.getElementById("textarea2").value=final;
+
+    } catch (err) {
+
+        document.getElementById("textarea2").value=err.message;
+    }
+}
+
+//test
+function test() {
+    const array = new Vorrang([
+        ["schlafen", "studieren"],
+        ["essen", "studieren"],
+        ["studieren", "prüfen"]
+    ]);
+    var arrayfinal = [];
+    for (const next of array) {
+        arrayfinal.push(next);
+    }
+   var ausgabe = ["schlafen", "essen", "studieren", "prüfen"];
+    for (let i = 0; i &lt; arrayfinal.length; i++) {
+
+        console.assert(ausgabe[i] === arrayfinal[i], `diese beide Werte ${ausgabe[i]} und ${arrayfinal[i]} sind nicht gleich`);
+    }
+}
+
+
+&lt;/script>
+
+&lt;/body>
+&lt;/html>
+</pre>
+	
+</body>
+</html>
