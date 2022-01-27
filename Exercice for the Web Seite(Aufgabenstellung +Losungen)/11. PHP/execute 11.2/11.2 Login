@@ -1,0 +1,33 @@
+
+<?php
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    if (($handle = fopen("./raw_passwd.csv", "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+            if ($data[0] === $user) {
+                if (password_verify($passwd, $data[1])) {
+                    echo "<script><alert>Login erfolgreich!</script>";
+                } else {
+                    echo "$password Login Fehlgeschlagen";
+                }
+            }
+        }
+        fclose($handle);
+    }
+?>
+
+<!DOCTYPE html>
+<h1>Login</h1>
+<form method="post">
+    <fieldset>
+        <legend>Login </legend>
+        Account name: <br>
+        <input type="text" name="account">
+        <br>
+        Password: <br>
+        <input type="password" name="password">
+        <br></br>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>

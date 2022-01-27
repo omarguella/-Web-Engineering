@@ -51,11 +51,41 @@ pre {
 	<p><b>Schreiben Sie eine sichere PHP-Lösung für Login, das die persistierten Registrierungsdaten aus der letzten Aufgabe nutzt. </b></p>
   	<p>Geben Sie alle Ihre PHP-Skripte hier an:</p>
 
-	<pre>xx
+	<pre>
+&lt;?php
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
+    if (($handle = fopen("./raw_passwd.csv", "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 0, ",")) !== FALSE) {
+            if ($data[0] === $user) {
+                if (password_verify($passwd, $data[1])) {
+                    echo "&lt;script>&lt;alert>Login erfolgreich!&lt;/script>";
+                } else {
+                    echo "$password Login Fehlgeschlagen";
+                }
+            }
+        }
+        fclose($handle);
+    }
+?>
 	</pre>
  	<p>Geben Sie Ihren Client-Code (HTML, CSS, Javascript), falls zusätzlich zum PHP-Skript vorhanden, hier an:<p>
 
-	<pre>xx
+	<pre>&lt;!DOCTYPE html>
+&lt;h1>Login&lt;/h1>
+&lt;form method="post">
+    &lt;fieldset>
+        &lt;legend>Login &lt;/legend>
+        Account name: &lt;br>
+        &lt;input type="text" name="account">
+        &lt;br>
+        Password: &lt;br>
+        &lt;input type="password" name="password">
+        &lt;br>&lt;/br>
+        &lt;input type="submit" value="Submit">
+    &lt;/fieldset>
+&lt;/form>
 	</pre>
 </body>
 </html>
