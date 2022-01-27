@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>8.1 Promises</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  background-color: #689ef7;
+  color: white;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>8.1 Promises</h1>
+	<p><b>Lösen Sie die letzte Aufgabe mit async / await statt Promise. </b></p>
+<p><b>QUELLCODE:</b></p>
+
+	<pre>&lt;!DOCTYPE html>
+&lt;html>
+
+&lt;head>
+
+    &lt;script>
+       
+(async _=> {
+	   var texta
+        var textb 
+
+                await Promise.all([
+                    (async _=> a = await readFile('.A.txt'))(),
+                    (async _=> b = await readFile('.B.txt'))()
+                ]);
+
+       
+            var maxlen = (arrayA.length >= arrayB.length) ? maxlen = arrayA.length : maxlen = arrayB.length;
+
+            for (var i = 0; i &lt; maxlen; i++) {
+                document.getElementById("feld").textContent += arrayA[i] + arrayB[i];
+            }
+        });
+		         async function readFile(text){
+                let importText = await fetch(text);
+                let newText = await importText.text();
+                return newText.split('\r\n');
+            }
+
+    &lt;/script>
+
+&lt;/head>
+
+&lt;body>
+    &lt;div>
+        &lt;h1>8.1. Promises&lt;/h1>
+        &lt;div id="feld">&lt;/div>
+
+    &lt;/div>
+
+&lt;/body>
+
+&lt;/html>
+
+	</pre>
+	
+	
+	
+	
+</body>
+</html>

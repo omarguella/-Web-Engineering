@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11.1 Registrierung mit PHP</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>11.1 Registrierung mit PHP</h1>
+	<p><b>Erstellen Sie mit PHP 5 auf www2.inf.h-brs.de ein Registrierungsformular. Speichern Sie die eingegebenen Daten persistent in einer Datei auf www2.inf.h-brs.de. Schreiben Sie Ihre PHP-Scripte so, 
+	dass es zu keinen<a href="https://de.wikipedia.org/wiki/Wettlaufsituation" target="_blank" > Nebenläufigkeitsartefakten</a> (z.B.<a href="https://de.wikipedia.org/wiki/Verlorenes_Update" target="_blank" > Lost Update </a>) kommen kann, egal wie viele Nutzer sich gleichzeitig registrieren. </b></p>
+  	<p>Geben Sie hier Ihre vollständige Lösung für das Registrierungsformular (ggfs. mit allen Dateien hintereinander) ein:</p>
+	<pre>&lt;?php
+            session_start();
+            if (isset($_POST['account']) && isset($_POST[ 'password' ]) ) {
+                $account = $_POST[ 'account' ];
+                $passwd = $_POST[ 'password' ];
+                $file = './raw_passwd.csv';
+                $new_line = $account . ',' . $passwd . "\n";
+                if ( file_put_contents( $file, $new_line, FILE_APPEND | LOCK_EX ) ){
+                echo "&lt;script>alert('Registered successfull')&lt;/script>";
+                }  
+            }
+?>
+
+&lt;!DOCTYPE html>
+&lt;h1>Register&lt;/h1>
+&lt;form method="post">
+    &lt;fieldset>
+        &lt;legend>Register &lt;/legend>
+        Account name: &lt;br>
+        &lt;input type="text" name="account">
+        &lt;br>
+        Password: &lt;br>
+        &lt;input type="password" name="password">
+        &lt;br>&lt;/br>
+        &lt;input type="submit" value="Submit">
+    &lt;/fieldset>
+&lt;/form>
+	</pre>
+ 	
+</body>
+</html>

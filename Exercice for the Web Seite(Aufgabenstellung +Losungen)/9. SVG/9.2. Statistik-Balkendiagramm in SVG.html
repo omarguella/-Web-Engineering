@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>9.2. Statistik-Balkendiagramm in SVG</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>9.2. Statistik-Balkendiagramm in SVG</h1>
+	<p><b>Implementieren Sie ein eigenes Balkendiagramm mit HTML, Inline SVG, CSS und JavaScript. Geben Sie die Daten für das Balkendiagramm im JSON-Format vor.
+	Nehmen Sie als Beispieldaten 
+	die <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank" >COVID-19: Fallzahlen in Deutschland</a>. Animieren Sie die Grafik (siehe z.B. <a href="https://www.highcharts.com/demo/bar-basic" target="_blank" >Highchart Bar Chart</a>).</b></p>
+	<p>Geben Sie hier eine ablauffähige HTML-Seite inklusive SVG-Code ein: </p>
+	<p><b>QUELLCODE:</b> </p>
+	<pre>&lt;!DOCTYPE html>
+&lt;html lang="en">
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">&lt;/script>
+&lt;canvas id="myChart" style="width:100%;max-width:700px">&lt;/canvas>
+&lt;script>
+var myChart = new Chart("myChart", {
+    type: "bar",
+    data: {},
+    options: {}
+  });
+  var xValues = ["Baden-Württem­berg", "Bayern", "Berlin", "Branden­burg","Bremen","Hamburg","Nord­rhein-West­falen","Sachsen"];
+var yValues = [880657, 1191561 , 285058, 192271, 40950, 118126, 1221048 ,544655];
+var barColors = ["red", "green","blue","orange","yellow","pink","gray","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },options: {
+  
+      legend: {display: false},
+
+    title: {
+      display: true,
+      text: "Fallzahlen in Deutschland",
+
+    }
+  }
+});
+&lt;/script>
+
+&lt;body>
+    
+&lt;/body>
+&lt;/html>
+	</pre>
+
+	
+</body>
+</html>

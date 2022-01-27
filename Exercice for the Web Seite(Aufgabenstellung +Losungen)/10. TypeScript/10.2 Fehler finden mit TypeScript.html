@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>10.2 Fehler finden mit TypeScript</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>10.2 Fehler finden mit TypeScript</h1>
+	<p><b>Gegeben sei folgendes fehlerbehaftete JavaScript-Programm. Ergänzen Sie dieses um möglichst viele Typisierungen und übersetzen Sie es in ein TypeScript-Programm.</b></p>
+ <img src="Screen.jpg"  style="max-width:600px;width:100%"></img>
+ 	<p>Was ist der Fehler in dem gegebenen JavaScript-Code?</p>
+	<pre>das Programm wird hier true mit 1 und false mit 0 ersetzen und beide werte addiert was im 
+	Prinzip add addiert nur integer Werte deswegen soll die Datentype von x und y  deklariert werden. 
+
+	</pre>
+ 	<p>Geben Sie hier Ihren TypeScript-Code ein:</p>
+<pre>const add = (x:number,y:number) => x+y;
+const equals = (x:boolean,y:boolean) => x===y;
+
+console.log( add(1,2) ); 
+console.log( add(true, true ) ); 
+console.log( add(true, false ) ); 
+var x = y = 1; 
+console.log( add(equals(x,y), equals(y,x)) );
+	</pre>
+		<p>Welche Fehler meldet TypeScript?</p>
+<pre>Fehler 1:
+console.log( add(true, true ) ); 
+boolean type anstatt number abgegeben 
+
+Fehler 2:
+var x = y = 1; 
+y ist nicht Deklariert
+
+Fehler 3:
+console.log( add(equals(x,y), equals(y,x)) );
+equals liefert Booleane werte zurück aber add soll number werte addieren.
+	</pre>
+			<p>Geben Sie weitere Beispiele an, wie TypeScript bei der Fehlersuche helfen kann:</p>
+<pre>let erste= () => ({ übung:10, aufgabe: 2});
+let zweite = () => ({ übung:10 ,aufgabe: 2 , frage:"letzte_Frage"});
+erste= zweite ;  //works
+zweite = erste;  //Not working</pre>
+	
+</body>
+</html>

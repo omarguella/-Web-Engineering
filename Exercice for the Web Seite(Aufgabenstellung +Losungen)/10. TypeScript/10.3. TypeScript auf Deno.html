@@ -1,4 +1,62 @@
-class Corona {
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>10.3. TypeScript auf Deno</title>
+
+
+</head>
+<style>
+
+
+
+#aufgabe {
+	background:#dafdff;
+	border: 1px solid black;
+}
+
+
+.execute {
+  padding: 5px 11px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  text-shadow: 3px 3px 3px #ababab;
+
+  color: white;
+  background-color: #689ef7;
+  border: none;
+  border-radius: 9px;
+}
+
+/*W3school*/
+.execute:active {
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(8px);
+}
+
+pre {
+	overflow: auto;
+	background:#e3fcde;
+	border:2px solid gray;
+	border-style: dotted;
+}
+
+
+</style>	
+
+<body>
+	<div id="aufgabe"><h1>10.3. TypeScript auf <a href="https://deno.land/" target="_blank" >Deno</a></h1>
+	<p><b>Auf Deno ist TypeScript ohne Übersetzung direkt ablauffähig. Deno ist also die Runtime Engine für TypeScript.
+
+Schreiben Sie in TypeScript möglichst umfangreich statisch typisiert ein auf Deno ablauffähiges Programm <code style="color:#ff0000">server.ts</code>,
+ das Sie mit<code style="color:#ff0000"> deno run --allow-net server.ts </code> starten können, das die <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Fallzahlen.html" target="_blank" >COVID-19-Fallzahlen in Deutschland</a> einliest, Minimum, Maximum, 
+ Durchschnitt und Summe berechnet und diese auf einer Webseite ausgibt.
+
+Ein Beispiel-Programm zu server.ts finden Sie im<a href="https://deno.land/manual" target="_blank" > Deno-Manual</a> unter <a href="https://deno.land/manual@v1.16.4/getting_started/first_steps#making-an-http-request" target="_blank" >Making an HTTP request</a></b></p>
+ 	<p>Geben Sie hier Ihr Programm <code style="color:#ff0000">server.ts</code> ein:</p>
+	<pre>class Corona {
     constructor(public place: string, public cases: number) {
     }
 }
@@ -15,7 +73,7 @@ const getStats = (coronaCases: Corona[]): Stats => {
     coronaCases.forEach((c) => {
         sum += c.cases
         if (c.cases > max) max = c.cases;
-        if (c.cases < min) min = c.cases;
+        if (c.cases &lt; min) min = c.cases;
     })
 
     return new Stats(min, max, sum / coronaCases.length);
@@ -60,3 +118,6 @@ async function serveHttp(conn: Deno.Conn) {
         );
     }
 }
+	
+</body>
+</html>
